@@ -4,6 +4,7 @@ import AppHeader from '../components/AppHeader.vue';
 import AppFooter from '../components/AppFooter.vue';
 import ToolsSection from '../components/ToolsSection.vue';
 import { toolCategories } from '../tools/index.js';
+import AdComponent from '../components/AdComponent.vue';
 
 const searchQuery = ref('');
 
@@ -32,6 +33,9 @@ const filteredTools = computed(() => {
   <div class="min-h-screen flex flex-col">
     <AppHeader @search="handleSearch" />
     
+    <!-- Top ad placement -->
+    <AdComponent />
+    
     <main class="flex-grow bg-gray-50">
       <div class="container mx-auto px-4 py-8">
         <div v-if="searchQuery" class="mb-6">
@@ -40,11 +44,16 @@ const filteredTools = computed(() => {
           </h2>
         </div>
         
-        <div v-for="category in filteredTools" :key="category.category">
+        <div v-for="(category, index) in filteredTools" :key="category.category">
           <ToolsSection 
             :category="category.category" 
             :tools="category.items"
           />
+          
+          <!-- Add an ad after every category except the last one -->
+          <div v-if="index < filteredTools.length - 1" class="my-8">
+            <AdComponent />
+          </div>
         </div>
 
         <div v-if="filteredTools.length === 0" class="text-center py-16">
@@ -60,6 +69,9 @@ const filteredTools = computed(() => {
         </div>
       </div>
     </main>
+    
+    <!-- Bottom ad placement -->
+    <AdComponent />
     
     <AppFooter />
   </div>

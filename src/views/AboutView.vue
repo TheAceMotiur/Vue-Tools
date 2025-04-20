@@ -1,6 +1,10 @@
 <template>
   <div class="about">
     <h1 class="text-3xl font-bold mb-8">About FreeNetly Tools</h1>
+    
+    <!-- Top ad placement -->
+    <AdComponent />
+    
     <div class="bg-white shadow rounded-lg p-6">
       <p class="mb-4">
         FreeNetly provides a collection of free online tools to help webmasters, developers,
@@ -14,8 +18,15 @@
         If you have any suggestions or feedback, please feel free to contact us.
       </p>
     </div>
+    
+    <!-- Bottom ad placement -->
+    <AdComponent />
   </div>
 </template>
+
+<script setup>
+import AdComponent from '../components/AdComponent.vue';
+</script>
 
 <style scoped>
 .about {

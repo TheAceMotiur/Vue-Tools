@@ -3,6 +3,7 @@ import { ref, computed, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import AppHeader from '../components/AppHeader.vue';
 import AppFooter from '../components/AppFooter.vue';
+import AdComponent from '../components/AdComponent.vue';
 import { findTool } from '../tools/index.js';
 
 const route = useRoute();
@@ -69,6 +70,9 @@ function handleSearch(query) {
         </div>
         
         <template v-else>
+          <!-- Top ad placement -->
+          <AdComponent />
+          
           <div class="mb-6 flex items-center">
             <button @click="router.push('/')" class="flex items-center text-indigo-600 hover:text-indigo-800">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
@@ -83,6 +87,9 @@ function handleSearch(query) {
           <div class="bg-white rounded-lg shadow-md p-6">
             <component :is="tool.component" />
           </div>
+          
+          <!-- Bottom ad placement -->
+          <AdComponent />
         </template>
       </div>
     </main>

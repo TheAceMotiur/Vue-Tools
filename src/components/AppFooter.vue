@@ -1,5 +1,8 @@
 <template>
   <footer class="bg-gray-800 text-white mt-auto">
+    <!-- Ad before footer content -->
+    <AdComponent />
+    
     <div class="container mx-auto px-4 py-6">
       <div class="flex flex-col md:flex-row justify-between">
         <div class="mb-4 md:mb-0">
@@ -34,9 +37,7 @@
         </div>
       </div>
       
-      <hr class="my-4 border-gray-700" />
-      
-      <div class="flex flex-col md:flex-row justify-between items-center">
+      <div class="mt-8 pt-8 border-t border-gray-700 flex flex-col-reverse md:flex-row md:justify-between md:items-center">
         <p class="text-gray-400 text-sm">© {{ new Date().getFullYear() }} FreeNetly. All rights reserved.</p>
         <div class="flex mt-2 md:mt-0 space-x-4">
           <a href="#" class="text-gray-400 hover:text-white">
@@ -62,3 +63,7 @@
     </div>
   </footer>
 </template>
+
+<script setup>
+import AdComponent from './AdComponent.vue';
+</script>
