@@ -1,14 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import base CSS after Tailwind so it doesn't override Tailwind's reset */
 @import './base.css';
 
+/* Custom styles can go below */
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
   font-weight: normal;
 }
 
-a,
-.green {
+a.green {
   text-decoration: none;
   color: hsla(160, 100%, 37%, 1);
   transition: 0.4s;
@@ -16,20 +21,22 @@ a,
 }
 
 @media (hover: hover) {
-  a:hover {
+  a.green:hover {
     background-color: hsla(160, 100%, 37%, 0.2);
   }
 }
 
+/* Remove default grid layout for desktop that conflicts with our layout */
 @media (min-width: 1024px) {
   body {
-    display: flex;
-    place-items: center;
+    display: block;
+    min-height: 100vh;
   }
 
   #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 0;
   }
 }
